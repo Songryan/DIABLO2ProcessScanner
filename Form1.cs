@@ -6,6 +6,9 @@ namespace DIABLO2ProcessScanner
     {
         private MemoryService memoryService = new MemoryService();
 
+        // 실행중인 프로세스들.
+        private List<Process> d2rProcesses = new List<Process>();
+
         public Form1()
         {
             InitializeComponent();
@@ -14,10 +17,23 @@ namespace DIABLO2ProcessScanner
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             lstProcesses.Items.Clear();
+            d2rProcesses.Clear();
 
-            foreach (var proc in Process.GetProcesses())
+            var processes = Process.GetProcesses();
+
+            foreach (var proc in processes)
             {
-                lstProcesses.Items.Add(proc.ProcessName);
+                if (proc.ProcessName.Contains("D2R") ||
+                    proc.ProcessName.Contains("Diablo"))
+                {
+                    d2rProcesses.Add(proc);
+                    lstProcesses.Items.Add(proc.ProcessName);
+                }
+            }
+
+            if (lstProcesses.Items.Count == 0)
+            {
+                MessageBox.Show("D2R 프로세스 없음");
             }
         }
 

@@ -46,6 +46,7 @@
             btnFindProcess.TabIndex = 0;
             btnFindProcess.Text = "프로세스 찾기";
             btnFindProcess.UseVisualStyleBackColor = true;
+            btnFindProcess.Click += btnFindProcess_Click;
             // 
             // btnRefresh
             // 
@@ -55,6 +56,7 @@
             btnRefresh.TabIndex = 1;
             btnRefresh.Text = "목록 새로고침";
             btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // btnReadMemory
             // 
@@ -64,6 +66,7 @@
             btnReadMemory.TabIndex = 2;
             btnReadMemory.Text = "값 읽기";
             btnReadMemory.UseVisualStyleBackColor = true;
+            btnReadMemory.Click += btnReadMemory_Click;
             // 
             // lstProcesses
             // 
